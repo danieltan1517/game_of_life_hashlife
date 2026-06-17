@@ -1,3 +1,5 @@
 .build/*
 .*.swp
 *.log
+gol
+gol-console
