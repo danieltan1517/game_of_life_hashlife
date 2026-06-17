@@ -134,8 +134,8 @@ Because the universe is unbounded, the view automatically **follows the pattern*
 The project is written in Jai and built with the Jai compiler, for example:
 
 ```
-jai hashlife_ui.jai        # the windowed UI
-jai hashlife_console.jai   # the text-mode console application
+jai build.jai - gui     # the windowed UI
+jai build.jai - cmd     # the text-mode console application
 ```
 
 (Adjust the file names to match your checkout.) The UI depends on Jai's `Simp`, `Window_Creation`, `GetRect`, `Input`, and `Math` modules; both front-ends use `Basic`, and the `.lif` loader additionally uses the `String` and `File` modules.
