@@ -13,6 +13,7 @@ build :: () {
     args := target_options.compile_time_command_line;
     gui := false;
     cmd := false;
+    test := false;
     release := true;
 
     for arg: args {
@@ -23,6 +24,9 @@ build :: () {
 
         case "cmd";
             cmd = true;
+
+        case "test";
+            test = true;
 
         case "release";
             release = true;
@@ -40,6 +44,7 @@ build :: () {
             print("Command-line options:\n");
             print("gui         Builds the GUI Interface\n");
             print("cmd         Builds the Command-Line Interface\n");
+            print("test        Builds the robustness/soak test harness (gol-test)\n");
             print("Run 'jai build.jai - gui cmd' to build both the gui and commandline application\n");
             return;
         case;
@@ -62,10 +67,22 @@ build :: () {
         }
     }
 
-    if !cmd && !gui {
+    if test == true {
+        // The harness is sensitive to optimization-related miscompiles, so a
+        // debug build is the most useful default for catching regressions.
+        // Use 'r'/'release' alongside 'test' to soak-test the optimized build.
+        if release {
+            build_release("gol-test", "hashlife_test.jai");
+        } else {
+            build_debug("gol-test", "hashlife_test.jai");
+        }
+    }
+
+    if !cmd && !gui && !test {
         print("Command-line options:\n");
         print("gui         Builds the GUI Interface\n");
         print("cmd         Builds the Command-Line Interface\n");
+        print("test        Builds the robustness/soak test harness (gol-test)\n");
         print("Run 'jai build.jai - gui cmd' to build both the gui and commandline application\n");
     }
 }
