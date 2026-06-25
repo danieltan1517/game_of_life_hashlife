@@ -1,12 +1,8 @@
 # Conway's Game of Life in Jai — HashLife
 
-This project is an implementation of John Conway's Game of Life in [Jai](https://en.wikipedia.org/wiki/Jai_(programming_language)).
+This project is an implementation of John Conway's Game of Life in [Jai](https://en.wikipedia.org/wiki/Jai_(programming_language)). This uses Bill Gosper's **HashLife** algorithm for simulating Life on an *unbounded* plane. The grid is no longer a fixed torus — the universe is effectively infinite, and large, regular patterns can be advanced enormous numbers of generations almost for free. The same engine powers two front-ends: an interactive windowed UI and a text-mode console application.
 
-It began as a small didactic implementation: a fixed-size, power-of-two **toroidal** grid (the board wraps around at the edges) with a straightforward generation step that visits every cell. That version is the one shown in the demo video below, and it is still the easiest place to start if you just want to read a simple Game of Life.
-
-The current code replaces that engine with **HashLife**, Bill Gosper's algorithm for simulating Life on an *unbounded* plane. The grid is no longer a fixed torus — the universe is effectively infinite, and large, regular patterns can be advanced enormous numbers of generations almost for free. The same engine powers two front-ends: an interactive windowed UI and a text-mode console application.
-
-[Game of Life in Jai YouTube Demo Video](https://www.youtube.com/watch?v=wJJ6XU2Fv1w) (original simple toroidal version)
+[Game of Life in Jai YouTube Demo Video](https://www.youtube.com/watch?v=-C1ufm3caCA)
 
 ---
 
